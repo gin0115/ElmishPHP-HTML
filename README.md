@@ -37,3 +37,13 @@ Most HTML elements carry similar patterns, attributes and children for example.
     <p>Im a child<span data-attribute="yes">granchild</span></p>
 </div>
 ```
+
+This makes use of partial application and currying to allow HTML like this to be created using
+```php
+div(['id' => 'attribute', 'class' => "these are also attributes", 'THIS_TOO_AN_ATTRIBUTE'])(
+    p()(
+        'Im a child',
+        span(["data-attribute"=>"yes"])
+    )
+);
+```
