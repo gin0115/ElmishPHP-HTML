@@ -40,10 +40,18 @@ Most HTML elements carry similar patterns, attributes and children for example.
 
 This makes use of partial application and currying to allow HTML like this to be created using
 ```php
-div(['id' => 'attribute', 'class' => "these are also attributes", 'THIS_TOO_AN_ATTRIBUTE'])(
+div(['id' => 'attribute', 'class' => 'these are also attributes', 'THIS_TOO_AN_ATTRIBUTE'])(
     p()(
         'Im a child',
-        span(["data-attribute"=>"yes"])
+        span(['data-attribute'=>'yes'])('granchild')
     )
 );
 ```
+> This can be made easier to read with the help of ELMs formatting standards
+```php
+div ([ 'id' => 'attribute', 'class' => 'these are also attributes', 'THIS_TOO_AN_ATTRIBUTE'])
+    ( p(/* No Attributes here, so empty */)
+        ( 'Im a child'
+        , span(['data-attribute'=>'yes'])('granchild')
+        ) 
+);
