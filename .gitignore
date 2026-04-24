@@ -4,10 +4,10 @@ sandbox/
 wiki/
 *.code-workspace
 .phpunit.result.cache
+.phpunit.cache/
 .php-cs-fixer.cache
 clover.xml
 node_modules/
-package-lock.json
 tests/test-results/
 playwright-report/
 .playwright/
