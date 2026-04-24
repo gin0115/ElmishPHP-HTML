@@ -1,0 +1,9 @@
+services:
+  elmish-fixtures:
+    image: php:8.3-cli
+    working_dir: /app
+    volumes:
+      - ../..:/app
+    ports:
+      - "57893:8000"
+    command: php -S 0.0.0.0:8000 -t /app tests/e2e/router.php

@@ -1,0 +1,13 @@
+vendor/
+composer.lock
+sandbox/
+wiki/
+*.code-workspace
+.phpunit.result.cache
+.phpunit.cache/
+.php-cs-fixer.cache
+clover.xml
+node_modules/
+tests/test-results/
+playwright-report/
+.playwright/
