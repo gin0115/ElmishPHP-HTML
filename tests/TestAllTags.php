@@ -119,12 +119,26 @@ class TestAllTags extends TestCase
         ];
     }
 
+    /**
+     * Invoke the functional facade for a tag, returning the rendered instance.
+     * Void tags: `tag(attrs)`. Non-void: `tag(attrs)(...children)`.
+     *
+     * @param array<int|string, string|null> $attrs
+     * @param array<\Gin0115\ElmishPHP\HTML\Renderable|string> $children
+     */
+    private function invoke(string $tag, bool $isVoid, array $attrs = [], array $children = []): object
+    {
+        $fn = "Gin0115\\ElmishPHP\\HTML\\{$tag}";
+        return $isVoid ? $fn($attrs) : $fn($attrs)(...$children);
+    }
+
     #[DataProvider('tags')]
     public function testEmptyRender(string $shortClass, string $tag, string $marker, bool $isVoid): void
     {
         $fqcn = "Gin0115\\ElmishPHP\\HTML\\Element\\{$shortClass}";
-        $instance = new $fqcn();
+        $instance = $this->invoke($tag, $isVoid);
 
+        $this->assertInstanceOf($fqcn, $instance);
         $expected = $isVoid ? "<{$tag}>" : "<{$tag}></{$tag}>";
         $this->assertSame($expected, (string) $instance);
     }
@@ -132,8 +146,7 @@ class TestAllTags extends TestCase
     #[DataProvider('tags')]
     public function testImplementsMarkerInterface(string $shortClass, string $tag, string $marker, bool $isVoid): void
     {
-        $fqcn = "Gin0115\\ElmishPHP\\HTML\\Element\\{$shortClass}";
-        $instance = new $fqcn();
+        $instance = $this->invoke($tag, $isVoid);
 
         $this->assertInstanceOf($marker, $instance);
         if ($isVoid) {
@@ -144,8 +157,7 @@ class TestAllTags extends TestCase
     #[DataProvider('tags')]
     public function testRenderWithAttributes(string $shortClass, string $tag, string $marker, bool $isVoid): void
     {
-        $fqcn = "Gin0115\\ElmishPHP\\HTML\\Element\\{$shortClass}";
-        $instance = new $fqcn(['id' => 'x', 'class' => 'y']);
+        $instance = $this->invoke($tag, $isVoid, ['id' => 'x', 'class' => 'y']);
 
         $expected = $isVoid
             ? "<{$tag} id=\"x\" class=\"y\">"
@@ -164,8 +176,7 @@ class TestAllTags extends TestCase
     #[DataProvider('nonVoidTags')]
     public function testRenderWithChildren(string $shortClass, string $tag, string $marker, bool $isVoid): void
     {
-        $fqcn = "Gin0115\\ElmishPHP\\HTML\\Element\\{$shortClass}";
-        $instance = new $fqcn([], [new Text('hi')]);
+        $instance = $this->invoke($tag, false, [], [new Text('hi')]);
 
         $this->assertSame("<{$tag}>hi</{$tag}>", (string) $instance);
     }

@@ -24,7 +24,6 @@
             "Gin0115\\ElmishPHP\\HTML\\": "src"
         },
         "files": [
-            "src/Utils.php",
             "src/Elements.php"
         ]
     },

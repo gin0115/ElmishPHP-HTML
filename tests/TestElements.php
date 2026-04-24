@@ -25,6 +25,13 @@ class TestElements extends TestCase
         $this->assertEquals('<foo class="really">VALUE</foo>', (string) $element);
     }
 
+    public function testNodeFunctionCreatesCustomElement(): void
+    {
+        $element = HTML\node('my-tag', ['data-x' => 'y'])(HTML\text('content'));
+        $this->assertInstanceOf(CustomElement::class, $element);
+        $this->assertEquals('<my-tag data-x="y">content</my-tag>', (string) $element);
+    }
+
     public function testVoidElementRendersWithoutClosingTag(): void
     {
         $br = HTML\br(['class' => 'really']);
