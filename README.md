@@ -2,6 +2,16 @@
 
 A functional library for creating HTML in PHP, heavily inspired by Elm's `Html` package. Each element is a typed value object with `__toString` — compose them with curried functions, render by stringification.
 
+[![Latest Stable Version](https://poser.pugx.org/gin0115/elmishphp-html/v)](https://packagist.org/packages/gin0115/elmishphp-html) [![Total Downloads](https://poser.pugx.org/gin0115/elmishphp-html/downloads)](https://packagist.org/packages/gin0115/elmishphp-html) [![Latest Unstable Version](https://poser.pugx.org/gin0115/elmishphp-html/v/unstable)](https://packagist.org/packages/gin0115/elmishphp-html) [![License](https://poser.pugx.org/gin0115/elmishphp-html/license)](https://packagist.org/packages/gin0115/elmishphp-html) [![PHP Version Require](https://poser.pugx.org/gin0115/elmishphp-html/require/php)](https://packagist.org/packages/gin0115/elmishphp-html)
+![GitHub contributors](https://img.shields.io/github/contributors/gin0115/ElmishPHP-HTML?label=Contributors)
+![GitHub issues](https://img.shields.io/github/issues-raw/gin0115/ElmishPHP-HTML)
+[![PHP](https://github.com/gin0115/ElmishPHP-HTML/actions/workflows/php.yml/badge.svg)](https://github.com/gin0115/ElmishPHP-HTML/actions/workflows/php.yml)
+[![E2E (Playwright)](https://github.com/gin0115/ElmishPHP-HTML/actions/workflows/e2e.yml/badge.svg)](https://github.com/gin0115/ElmishPHP-HTML/actions/workflows/e2e.yml)
+[![codecov](https://codecov.io/gh/gin0115/ElmishPHP-HTML/graph/badge.svg?token=K0V8V7EH9Q)](https://codecov.io/gh/gin0115/ElmishPHP-HTML)
+[![PHPStan Level 8](https://img.shields.io/badge/PHPStan-Level%208-brightgreen.svg?style=flat&logo=php)](https://phpstan.org/)
+[![Tested with PHPUnit](https://img.shields.io/badge/Tested%20with-PHPUnit%2011-blue.svg?style=flat&logo=php)](https://phpunit.de/)
+[![E2E with Playwright](https://img.shields.io/badge/E2E-Playwright-2EAD33.svg?style=flat&logo=playwright)](https://playwright.dev/)
+
 ## Why
 
 Erm, next question........ok fine, why not. I really enjoyed ELMs approach to creating HTML and have played around with this idea before (Functional WP Plugin).
