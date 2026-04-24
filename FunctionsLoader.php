@@ -33,8 +33,8 @@ class FunctionsLoader {
 	 * @since 0.1.0
 	 */
 	public static function include(): void {
-        require_once 'src' . \DIRECTORY_SEPARATOR . 'Utils.php';
-        require_once 'src' . \DIRECTORY_SEPARATOR . 'Elements.php';
+        require_once __DIR__ . \DIRECTORY_SEPARATOR . 'src' . \DIRECTORY_SEPARATOR . 'Utils.php';
+        require_once __DIR__ . \DIRECTORY_SEPARATOR . 'src' . \DIRECTORY_SEPARATOR . 'Elements.php';
 	}
 }
 
